@@ -21,30 +21,11 @@
 
             }
         }
-        static void SignInScreen()
-        {
-            Object User1 = new Object();
-            Console.WriteLine("--------- \n Sign in Menu \n ---------");
-            Console.WriteLine("");
-
-            Console.Write("Enter your Username: ");
-            string SignInName = Console.ReadLine();
-
-            Console.Write("Enter your Password: ");
-            string SignInPass = Console.ReadLine();
-
-            if (SignInName==User1.Name && SignInPass==User1.Password)
-            {
-                Console.WriteLine("")
-            }
-
-
-        }
 
         static void SignUpScreen()
         {
             Object User1 = new Object();
-            Console.WriteLine("--------- \n Sign Up Menu \n ---------");
+            Console.WriteLine("--------- \n Sign in Menu \n ---------");
             Console.WriteLine("");
             
             Console.Write("Enter your Email: ");
@@ -52,9 +33,6 @@
 
             Console.Write("Enter your Username: ");
             User1.Name = Console.ReadLine();
-
-            Console.Write("Enter your Password: ");
-            User1.Password = Console.ReadLine();
 
             Console.WriteLine("Enter your Phone Number: ");
             User1.phoneNumber = Convert.ToInt32(Console.ReadLine());
@@ -64,7 +42,7 @@
 
    public class Object
    {
-      public String Email, Name, Password;
+      public String Email, Name;
      public int phoneNumber;
         
    }

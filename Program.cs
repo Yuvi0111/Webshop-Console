@@ -1,4 +1,8 @@
-﻿namespace Webshop_Console
+﻿using System;
+using System.ComponentModel;
+using System.Reflection.Metadata;
+
+namespace Webshop_Console
 {
     internal class Program
     {
@@ -14,16 +18,19 @@
             while (loginInput != "3") ;
             { if (loginInput == "1")
                     SignUpScreen();
-              else if (loginInput == "2")
-                    Placeholder
-              else 
-
+                else if (loginInput == "2")
+                    SignInScreen();
+                else
+                {
+                    Console.WriteLine("Invalid Input. Try again. Redirecting..."); Console.ReadLine();
+                    Main();
+                }
 
             }
         }
-        static void SignInScreen()
+        static void SignInScreen(string name, string password, string phoneNumber, string email)
         {
-            Object User1 = new Object();
+            Console.Clear();
             Console.WriteLine("--------- \n Sign in Menu \n ---------");
             Console.WriteLine("");
 
@@ -33,39 +40,38 @@
             Console.Write("Enter your Password: ");
             string SignInPass = Console.ReadLine();
 
-            if (SignInName==User1.Name && SignInPass==User1.Password)
+            if (SignInName==name && SignInPass==password)
             {
-                Console.WriteLine("")
+                Console.Clear();
+                Console.Write("Login Successful... \n Redirecting..."); Console.ReadLine();
+                
             }
-
+            else
+            {
+                Console.Clear();   
+                Console.WriteLine("Invalid Creditentials, please try again."); Console.ReadLine();
+                SignInScreen();
+            }
 
         }
 
         static void SignUpScreen()
         {
-            Object User1 = new Object();
-            Console.WriteLine("--------- \n Sign Up Menu \n ---------");
-            Console.WriteLine("");
-            
+            Console.Clear();
+            Console.WriteLine("---------\nSign Up Menu\n---------");
+
             Console.Write("Enter your Email: ");
-            User1.Email = Console.ReadLine();
+            string email = Console.ReadLine();
 
             Console.Write("Enter your Username: ");
-            User1.Name = Console.ReadLine();
+            string name = Console.ReadLine();
 
             Console.Write("Enter your Password: ");
-            User1.Password = Console.ReadLine();
+            string password = Console.ReadLine();
 
-            Console.WriteLine("Enter your Phone Number: ");
-            User1.phoneNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter your Phone Number: ");
+            int phoneNumber = Convert.ToInt32(Console.ReadLine());
         }
        
     }
-
-   public class Object
-   {
-      public String Email, Name, Password;
-     public int phoneNumber;
-        
-   }
 }

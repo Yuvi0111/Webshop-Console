@@ -8,7 +8,12 @@ namespace Webshop_Console
     {
         static void Main(string[] args)
         {
+            Menu();
+        }
+        static void Menu()
+        {
             Console.WriteLine("--------- \n Login Screen \n ---------");
+
             Console.WriteLine("1. Sign up \n 2. Sign in \n 3. Exit");
             Console.WriteLine("Note: Enter the number to choose" +
                 "your function throughout the program");
@@ -16,18 +21,18 @@ namespace Webshop_Console
             string loginInput = Console.ReadLine();
 
             while (loginInput != "3") ;
-            { if (loginInput == "1")
+            {
+                if (loginInput == "1")
                     SignUpScreen();
                 else if (loginInput == "2")
                     SignInScreen();
                 else
                 {
                     Console.WriteLine("Invalid Input. Try again. Redirecting..."); Console.ReadLine();
-                    Main();
+                    Menu();
                 }
-
-            }
         }
+}
         static void SignInScreen(string name, string password, string phoneNumber, string email)
         {
             Console.Clear();

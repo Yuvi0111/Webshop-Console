@@ -6,8 +6,7 @@ namespace Webshop_Console
 {
     internal class Program
     {
-        public static string name, password, email;
-        public static int phoneNumber;
+        
         
         static void Main(string[] args)
         {
@@ -15,7 +14,7 @@ namespace Webshop_Console
         }
         static void Menu()
         {
-            Console.WriteLine("--------- \n Login Screen \n ---------");
+            Console.WriteLine("--------- \nLogin Screen \n---------");
 
             Console.WriteLine("1. Sign up \n2. Sign in \n3. Exit");
             Console.WriteLine("Note: Enter the number to choose" +
@@ -80,6 +79,8 @@ namespace Webshop_Console
             Console.Write("Enter your Phone Number: ");
             int phoneNumber = Convert.ToInt32(Console.ReadLine());
         }
-       
+        public static string name, password, email;
+        public static int phoneNumber;
+
     }
 }

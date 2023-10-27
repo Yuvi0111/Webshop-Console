@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection.Metadata;
+using System.Xml.Linq;
 
 namespace Webshop_Console
 {
@@ -25,7 +26,7 @@ namespace Webshop_Console
                 if (loginInput == "1")
                     SignUpScreen();
                 else if (loginInput == "2")
-                    SignInScreen();
+                    SignInScreen(string name, string password, string phoneNumber, string email);
                 else
                 {
                     Console.WriteLine("Invalid Input. Try again. Redirecting..."); Console.ReadLine();
@@ -55,7 +56,7 @@ namespace Webshop_Console
             {
                 Console.Clear();   
                 Console.WriteLine("Invalid Creditentials, please try again."); Console.ReadLine();
-                SignInScreen();
+                SignInScreen(string name, string password, string phoneNumber, string email);
             }
 
         }

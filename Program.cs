@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection.Metadata;
-using System.Xml.Linq;
 
 namespace Webshop_Console
 {
     internal class Program
     {
+        public static string name, password, email;
+        public static int phoneNumber;
+        
         static void Main(string[] args)
         {
             Menu();
@@ -15,7 +17,7 @@ namespace Webshop_Console
         {
             Console.WriteLine("--------- \n Login Screen \n ---------");
 
-            Console.WriteLine("1. Sign up \n 2. Sign in \n 3. Exit");
+            Console.WriteLine("1. Sign up \n2. Sign in \n3. Exit");
             Console.WriteLine("Note: Enter the number to choose" +
                 "your function throughout the program");
             Console.Write("Choose your function: ");
@@ -26,7 +28,7 @@ namespace Webshop_Console
                 if (loginInput == "1")
                     SignUpScreen();
                 else if (loginInput == "2")
-                    SignInScreen(string name, string password, string phoneNumber, string email);
+                    SignInScreen();
                 else
                 {
                     Console.WriteLine("Invalid Input. Try again. Redirecting..."); Console.ReadLine();
@@ -34,7 +36,7 @@ namespace Webshop_Console
                 }
         }
 }
-        static void SignInScreen(string name, string password, string phoneNumber, string email)
+        static void SignInScreen()
         {
             Console.Clear();
             Console.WriteLine("--------- \n Sign in Menu \n ---------");
@@ -56,7 +58,7 @@ namespace Webshop_Console
             {
                 Console.Clear();   
                 Console.WriteLine("Invalid Creditentials, please try again."); Console.ReadLine();
-                SignInScreen(string name, string password, string phoneNumber, string email);
+                SignInScreen();
             }
 
         }
@@ -67,13 +69,13 @@ namespace Webshop_Console
             Console.WriteLine("---------\nSign Up Menu\n---------");
 
             Console.Write("Enter your Email: ");
-            string email = Console.ReadLine();
+            email = Console.ReadLine();
 
             Console.Write("Enter your Username: ");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
 
             Console.Write("Enter your Password: ");
-            string password = Console.ReadLine();
+            password = Console.ReadLine();
 
             Console.Write("Enter your Phone Number: ");
             int phoneNumber = Convert.ToInt32(Console.ReadLine());

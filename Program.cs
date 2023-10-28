@@ -14,6 +14,7 @@ namespace Webshop_Console
         }
         static void Menu()
         {
+            Console.Clear();
             Console.WriteLine("--------- \nLogin Screen \n---------");
 
             Console.WriteLine("1. Sign up \n2. Sign in \n3. Exit");
@@ -22,7 +23,7 @@ namespace Webshop_Console
             Console.Write("Choose your function: ");
             string loginInput = Console.ReadLine();
 
-            while (loginInput != "3") 
+            while (loginInput != "3")
             {
                 if (loginInput == "1")
                     SignUpScreen();
@@ -30,7 +31,7 @@ namespace Webshop_Console
                     SignInScreen();
                 else
                 {
-                    Console.WriteLine("Invalid Input. Try again. Redirecting..."); 
+                    Console.WriteLine("Invalid Input. Try again. Redirecting...");
                     Console.ReadLine();
                     Menu();
                 }
@@ -81,7 +82,10 @@ namespace Webshop_Console
             password = Console.ReadLine();
 
             Console.Write("Enter your Phone Number: ");
-            int phoneNumber = Convert.ToInt32(Console.ReadLine());
+            long phoneNumber = Convert.ToInt64(Console.ReadLine());
+
+            Console.WriteLine("Registered Successfully. Redirecting...");
+            Console.ReadLine();
             Menu();
         }
         public static string name, password, email;

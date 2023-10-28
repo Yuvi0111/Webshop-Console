@@ -35,9 +35,9 @@ namespace Webshop_Console
                     Console.ReadLine();
                     Menu();
                 }
-            
+            }
         }
-}
+
         static void SignInScreen()
         {
             Console.Clear();

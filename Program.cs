@@ -22,7 +22,7 @@ namespace Webshop_Console
             Console.Write("Choose your function: ");
             string loginInput = Console.ReadLine();
 
-            while (loginInput != "3") ;
+            while (loginInput != "3") 
             {
                 if (loginInput == "1")
                     SignUpScreen();
@@ -30,9 +30,11 @@ namespace Webshop_Console
                     SignInScreen();
                 else
                 {
-                    Console.WriteLine("Invalid Input. Try again. Redirecting..."); Console.ReadLine();
+                    Console.WriteLine("Invalid Input. Try again. Redirecting..."); 
+                    Console.ReadLine();
                     Menu();
                 }
+            
         }
 }
         static void SignInScreen()
@@ -42,21 +44,23 @@ namespace Webshop_Console
             Console.WriteLine("");
 
             Console.Write("Enter your Username: ");
-            string SignInName = Console.ReadLine();
+            string signInName = Console.ReadLine();
 
             Console.Write("Enter your Password: ");
-            string SignInPass = Console.ReadLine();
+            string signInPass = Console.ReadLine();
 
-            if (SignInName==name && SignInPass==password)
+            if (signInName==name && signInPass==password)
             {
                 Console.Clear();
-                Console.Write("Login Successful... \n Redirecting..."); Console.ReadLine();
+                Console.Write("Login Successful... \n Redirecting..."); 
+                Console.ReadLine();
                 
             }
             else
             {
                 Console.Clear();   
-                Console.WriteLine("Invalid Creditentials, please try again."); Console.ReadLine();
+                Console.WriteLine("Invalid Creditentials, please try again."); 
+                Console.ReadLine();
                 SignInScreen();
             }
 
@@ -78,6 +82,7 @@ namespace Webshop_Console
 
             Console.Write("Enter your Phone Number: ");
             int phoneNumber = Convert.ToInt32(Console.ReadLine());
+            Menu();
         }
         public static string name, password, email;
         public static int phoneNumber;

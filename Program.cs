@@ -88,6 +88,21 @@ namespace Webshop_Console
             Console.ReadLine();
             Menu();
         }
+
+        static void HomePage()
+        {
+            Console.Write("""
+            ----------Audio WebStore--------  
+            ------HomePage------
+              
+            --Categories--       --Account--                --Help Centre--   
+            1C. Headphones       1A. Account Details        1H. Write a Support Ticket 
+            2C. IEM's            2A. Cart                   2H. Frequently Asked Questions
+            3C. Eartips          3A. Sign Out               3H. Deliver Partners    
+            4C. DAC/AMP's         
+            """);
+        }
+   
         public static string name, password, email;
         public static int phoneNumber;
 

@@ -6,8 +6,8 @@ namespace Webshop_Console
 {
     internal class Program
     {
-        
-        
+
+
         static void Main(string[] args)
         {
             Menu();
@@ -50,17 +50,17 @@ namespace Webshop_Console
             Console.Write("Enter your Password: ");
             string signInPass = Console.ReadLine();
 
-            if (signInName==name && signInPass==password)
+            if (signInName == name && signInPass == password)
             {
                 Console.Clear();
-                Console.Write("Login Successful... \n Redirecting..."); 
+                Console.Write("Login Successful... \n Redirecting...");
                 Console.ReadLine();
-                
+
             }
             else
             {
-                Console.Clear();   
-                Console.WriteLine("Invalid Creditentials, please try again."); 
+                Console.Clear();
+                Console.WriteLine("Invalid Creditentials, please try again.");
                 Console.ReadLine();
                 SignInScreen();
             }
@@ -91,7 +91,7 @@ namespace Webshop_Console
 
         static void HomePage()
         {
-            Console.Write("""
+            Console.WriteLine("""
             ----------Audio WebStore--------  
             ------HomePage------
               
@@ -99,10 +99,50 @@ namespace Webshop_Console
             1C. Headphones       1A. Account Details        1H. Write a Support Ticket 
             2C. IEM's            2A. Cart                   2H. Frequently Asked Questions
             3C. Eartips          3A. Sign Out               3H. Deliver Partners    
-            4C. DAC/AMP's         
+            4C. DAC/AMP's        4A. Exit Website
             """);
+
+            Console.Write("User Input: ");
+            string userInputHomePage = Console.ReadLine();
+
+            while (userInputHomePage != "4A")
+            {
+                if (userInputHomePage == "1C")
+                    Headphones();
+                else if (userInputHomePage == "2C")
+                    IEM();
+                else if (userInputHomePage == "3C")
+                    Eartips();
+                else if (userInputHomePage == "4C")
+                    DAC();
+                else
+                {
+                    Console.WriteLine("Invalid Input. Try again. \nRedirecting...");
+                   HomePage();
+                }
+            }
+            Console.WriteLine("Thanks for visiting");
+            Environment.Exit(0);
+
+
+
         }
-   
+        static void IEM()
+        {
+            string[] IEM = { "7hz Salnotes Zero", "TruthEar Hola", "Moondrop Chu", "" };
+        }
+        static void Eartips()
+        {
+            string[] EarTips = { "Silicon Tips" };
+        }
+        static void DAC()
+        {
+
+        }
+        static void Headphones()
+        {
+
+        }
         public static string name, password, email;
         public static int phoneNumber;
 

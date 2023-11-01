@@ -127,6 +127,7 @@ namespace Webshop_Console
         }
         static void IEM()
         {
+            Console.Clear();
             string[] IEMs = new string[] { "7hz Salnotes Zero", "TruthEar Hola", "Moondrop Chu", "Tangzu Wagner", "Truthear X Crinacle", "Return To Homepage" };
             for (int i = 0; i < IEMs.Length; i++)
             {
@@ -135,18 +136,18 @@ namespace Webshop_Console
             Console.Write("\nSelect your product: ");
             string productIEM = Console.ReadLine();
 
-            int stock = 0;
+            int IEMstock = 0;
 
             if (productIEM == "1")
-                stock = 5;
+                IEMstock = 5;
             else if (productIEM == "2")
-                stock = 3;
+                IEMstock = 3;
             else if (productIEM == "3")
-                stock = 4;
+                IEMstock = 4;
             else if (productIEM == "4")
-                stock = 5;
+                IEMstock = 5;
             else if (productIEM == "5")
-                stock = 6;
+                IEMstock = 6;
             else if (productIEM == "6")
                 HomePage();
             else
@@ -155,15 +156,22 @@ namespace Webshop_Console
                 IEM();
             }
 
-            Console.WriteLine("Total Stock: " + Convert.ToString(stock));
+            Console.WriteLine("Total Stock: " + Convert.ToString(IEMstock));
             Console.WriteLine("\nSelect Your Quantity:");
-            string stockneeded = Console.ReadLine();
-            if (Convert.ToUInt16(stockneeded) >= 0) ;
+            string IEMStockNeeded = Console.ReadLine();
+            if (Convert.ToInt16(IEMStockNeeded) >= 0) 
             {
                 Console.WriteLine("Please enter a valid quantity and try again.");
                 IEM();
             }           
-            if (Convert.ToUInt64(stockneeded) == Convert.ToUInt64(stock)) ;
+            else if (Convert.ToUInt16(IEMStockNeeded) > Convert.ToUInt16(IEMstock))
+            {
+                Console.WriteLine("Sorry, but we only have " + Convert.ToString(IEMstock) + " items in stocks.");
+                IEM();
+            }
+         
+
+           
         }
         static void DAC()
         {

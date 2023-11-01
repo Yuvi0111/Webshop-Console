@@ -56,14 +56,14 @@ namespace Webshop_Console
                 Console.Clear();
                 Console.Write("Login Successful... \n Redirecting...");
                 Console.ReadLine();
-
+                HomePage(); 
             }
             else
             {
                 Console.Clear();
                 Console.WriteLine("Invalid Creditentials, please try again.");
                 Console.ReadLine();
-                SignInScreen();
+                Menu();
             }
 
         }
@@ -125,6 +125,8 @@ namespace Webshop_Console
             Console.WriteLine("Thanks for visiting");
             Environment.Exit(0);
         }
+        
+        
         static void IEM()
         {
             Console.Clear();
@@ -159,19 +161,31 @@ namespace Webshop_Console
             Console.WriteLine("Total Stock: " + Convert.ToString(IEMstock));
             Console.WriteLine("\nSelect Your Quantity:");
             string IEMStockNeeded = Console.ReadLine();
-            if (Convert.ToInt16(IEMStockNeeded) >= 0) 
+            int IEMStockInt;
+            bool stockConverted = int.TryParse(IEMStockNeeded, out IEMStockInt);
+            while (stockConverted == true)
             {
-                Console.WriteLine("Please enter a valid quantity and try again.");
-                IEM();
-            }           
-            else if (Convert.ToUInt16(IEMStockNeeded) > Convert.ToUInt16(IEMstock))
-            {
-                Console.WriteLine("Sorry, but we only have " + Convert.ToString(IEMstock) + " items in stocks.");
-                IEM();
+                if (IEMStockInt >= 0)
+                {
+                    Console.WriteLine("Please enter a valid quantity and try again.");
+                    IEM();
+                }
+                else if (Convert.ToUInt16(IEMStockNeeded) > Convert.ToUInt16(IEMstock))
+                {
+                    Console.WriteLine("Sorry, but we only have " + Convert.ToString(IEMstock) + " items in stocks.");
+                    IEM();
+                }
+                else
+                {
+                    Console.WriteLine("Successfully Purchased.");
+                    
+                    HomePage();
+                }
             }
-         
+            Console.WriteLine("Invalid Input. Please enter an integer.");
+            IEM();
 
-           
+
         }
         static void DAC()
         {

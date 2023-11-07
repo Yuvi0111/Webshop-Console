@@ -128,8 +128,10 @@ namespace Webshop_Console
                     Eartip(variable);
                 else if (userInputHomePage == "4C")
                     DAC(variable);
+                else if (userInputHomePage == "1A")
+                    Account(variable);
                 else if (userInputHomePage == "2A")
-                    Cart(variable); 
+                    Cart(variable);
                 else if (userInputHomePage == "3A")
                     Menu(variable);
                 else
@@ -142,6 +144,110 @@ namespace Webshop_Console
             Environment.Exit(0);
         }
 
+        static void Account(Variables variable)
+        {
+            Console.Clear();
+            Console.WriteLine("Username: " + name );
+            Console.WriteLine("Email: " + email);
+            Console.WriteLine("Phone Number: " + phoneNumber);
+            Console.Write("Password:");
+            for (int i = 0; i < password.Length; i++)
+            {
+                Console.Write("*");
+            }
+            Console.Write("\n1. Edit your username \n2. Edit your Email\n3. Edit your Phone Number\n4. Edit your Password\n5. Go back to homepage\n Function:");
+            string accountInput = Console.ReadLine();
+            if (accountInput == "1")
+            {
+                Console.Write("Enter your new username: ");
+                name = Console.ReadLine();
+                Console.WriteLine("Username updated.");
+                Console.ReadLine();
+                Account(variable);
+            }
+            else if (accountInput == "2")
+            {
+                Console.Write("Please confirm your password to continue.\n Enter your password: ");
+                string confirmPassword = Console.ReadLine();
+                if (confirmPassword == password)
+                {
+                    Console.Write("Enter your new email");
+                    email = Console.ReadLine();
+                    Console.WriteLine("Email updated.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid password.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+            }
+            else if (accountInput == "3")
+            {
+                Console.Write("Please confirm your password to continue.\n Enter your password: ");
+                string confirmPassword = Console.ReadLine();
+                if (confirmPassword == password)
+                {
+                    Console.Write("Enter your new Phone number");
+                    string phoneNumberConversion = Console.ReadLine();
+                    bool numberConverted = int.TryParse(phoneNumberConversion, out phoneNumber);
+                    if (numberConverted == false)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid Input.");
+                        Console.ReadLine();
+                        Account(variable);
+                    }
+                    Console.WriteLine("Phone Number updated.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid password.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+            }
+            else if (accountInput == "4")
+            {
+                Console.Write("Please confirm your password to continue.\n Enter your password: ");
+                string confirmPassword = Console.ReadLine();
+                if (confirmPassword == password)
+                {
+                    Console.Write("Enter your new password");
+                    password = Console.ReadLine();
+                    Console.WriteLine("Password updated.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid password.");
+                    Console.ReadLine();
+                    Account(variable);
+                }
+            }
+            else if (accountInput == "5")
+                HomePage(variable);
+            else
+            {
+                Console.WriteLine("Invalid Input.");
+                Console.ReadLine();
+                Account(variable);
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         public static void Cart(Variables variable) 
         {
             Console.Clear();

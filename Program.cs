@@ -190,30 +190,65 @@ namespace Webshop_Console
             {
                 Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.ventureElectronicsAbigailStock);
             }
-            if (variable.ventureElectronicsAvani == variable.DACs[0])
+            if (variable.ventureElectronicsAvani == variable.DACs[1])
             {
-                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.ventureElectronicsAvaniStock);
+                Console.WriteLine("Item: " + variable.DACs[1] + " Quantity: " + variable.ventureElectronicsAvaniStock);
             }
-            if (variable.shanglingUA1Plus == variable.DACs[0])
+            if (variable.shanglingUA1Plus == variable.DACs[2])
             {
-                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.shanglingUA1PlusStock);
+                Console.WriteLine("Item: " + variable.DACs[2] + " Quantity: " + variable.shanglingUA1PlusStock);
             }
-            if (variable.FIIOKA3 == variable.DACs[0])
+            if (variable.FIIOKA3 == variable.DACs[3])
             {
-                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.FIIOKA3Stock);
+                Console.WriteLine("Item: " + variable.DACs[3] + " Quantity: " + variable.FIIOKA3Stock);
             }
-            if (variable.GoLink == variable.DACs[0])
+            if (variable.GoLink == variable.DACs[4])
             {
-                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.GoLinkStock);
+                Console.WriteLine("Item: " + variable.DACs[4] + " Quantity: " + variable.GoLinkStock);
             }
-            if (variable.siliconTips == variable.DACs[0])
+            if (variable.siliconTips == variable.EarTips[0])
             {
-                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.siliconTipsStock);
+                Console.WriteLine("Item: " + variable.EarTips[0] + " Quantity: " + variable.siliconTipsStock);
             }
-
-            Console.ReadLine();
-        
-        
+            if (variable.foamTips == variable.EarTips[1])
+            {
+                Console.WriteLine("Item: " + variable.EarTips[1] + " Quantity: " + variable.foamTipsStock);
+            }
+            if (variable.doubleFlangesSiliconTips == variable.EarTips[2])
+            {
+                Console.WriteLine("Item: " + variable.EarTips[2] + " Quantity: " + variable.doubleFlangesSiliconTipsStock);
+            }
+            if (variable.tripleFlangesSiliconTips == variable.EarTips[3])
+            {
+                Console.WriteLine("Item: " + variable.EarTips[3] + " Quantity: " + variable.tripleFlangesSiliconTipsStock);
+            }
+            if (variable.twotoneTips == variable.EarTips[4])
+            {
+                Console.WriteLine("Item: " + variable.EarTips[4] + " Quantity: " + variable.twotoneTipsStock);
+            }
+            CartProceed(variable);
+        }
+        static void CartProceed(Variables variable)
+        {
+            Console.WriteLine("\n1. Proceed with purchase\n2. Return to Homepage");
+            string cartInput = Console.ReadLine();
+            if (cartInput == "1") 
+            {
+             Console.Clear();
+             Console.WriteLine("Proceeding...\nThanks for your purchase :D");
+             Console.ReadLine();
+             Environment.Exit(0);
+            }
+            else if (cartInput == "2")
+            {
+                HomePage(variable);
+            }
+            else
+            {
+                Console.WriteLine("Dummy.\nInvalid Input!");
+                Console.ReadLine();
+                CartProceed(variable);
+            }
         }
 
         static void Eartip(Variables variable)

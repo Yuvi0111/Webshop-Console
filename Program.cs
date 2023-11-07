@@ -128,6 +128,8 @@ namespace Webshop_Console
                     Eartip(variable);
                 else if (userInputHomePage == "4C")
                     DAC(variable);
+                else if (userInputHomePage == "2A")
+                    Cart(variable); 
                 else
                 {
                     Console.WriteLine("Invalid Input. Try again. \nRedirecting...");
@@ -146,52 +148,98 @@ namespace Webshop_Console
 
             if (variable.salnotesZero == variable.IEMs[0])
             {
-
+                Console.WriteLine("Item: " + variable.IEMs[0] + " Quantity: " + variable.salnotesZeroStock);
+            }
+            if (variable.truthEarHola == variable.IEMs[1])
+            {
+                Console.WriteLine("Item: " + variable.IEMs[1] + " Quantity: " + variable.truthEarHolaStock);
+            }
+            if (variable.moondropChu == variable.IEMs[2])
+            {
+                Console.WriteLine("Item: " + variable.IEMs[2] + " Quantity: " + variable.moondropChuStock);
+            }
+            if (variable.tangzuWagner == variable.IEMs[3])
+            {
+                Console.WriteLine("Item: " + variable.IEMs[3] + " Quantity: " + variable.tangzuWagnerStock);
+            }
+            if (variable.truthearXCrinacle == variable.IEMs[4])
+            {
+                Console.WriteLine("Item: " + variable.IEMs[4] + " Quantity: " + variable.truthearXCrinacleStock);
+            }
+            if (variable.sennheiserHD599 == variable.Headphones[0])
+            {
+                Console.WriteLine("Item: " + variable.Headphones[0] + " Quantity: " + variable.sennheiserHD599Stock);
+            }
+            if (variable.tribitBTHXFreeGo == variable.Headphones[1])
+            {
+                Console.WriteLine("Item: " + variable.Headphones[1] + " Quantity: " + variable.tribitBTHXFreeGoStock);
+            }
+            if (variable.audioTechnicam40x == variable.Headphones[2])
+            {
+                Console.WriteLine("Item: " + variable.Headphones[2] + " Quantity: " + variable.audioTechnicam40xStock);
+            }
+            if (variable.sennheiserHD650 == variable.Headphones[3])
+            {
+                Console.WriteLine("Item: " + variable.Headphones[3] + " Quantity: " + variable.sennheiserHD650Stock);
+            }
+            if (variable.hifimanEditionXS == variable.Headphones[4])
+            {
+                Console.WriteLine("Item: " + variable.Headphones[4] + " Quantity: " + variable.hifimanEditionXSStock);
+            }
+            if (variable.ventureElectronicsAbigail == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.ventureElectronicsAbigailStock);
+            }
+            if (variable.ventureElectronicsAvani == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.ventureElectronicsAvaniStock);
+            }
+            if (variable.shanglingUA1Plus == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.shanglingUA1PlusStock);
+            }
+            if (variable.FIIOKA3 == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.FIIOKA3Stock);
+            }
+            if (variable.GoLink == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.GoLinkStock);
+            }
+            if (variable.siliconTips == variable.DACs[0])
+            {
+                Console.WriteLine("Item: " + variable.DACs[0] + " Quantity: " + variable.siliconTipsStock);
             }
 
+            Console.ReadLine();
+        
+        
         }
 
         static void Eartip(Variables variable)
         {
-            string[] EarTips = { "Silicon Tips", "Foam Tips", "Double Flange Silicon Tips", "Triple Flange Silicon Tips", "Two-Tone Tips", "Exit" };
-            for (int i = 0; i < EarTips.Length; i++)
+            variable.EarTips = new string[] { "Silicon Tips", "Foam Tips", "Double Flange Silicon Tips", "Triple Flange Silicon Tips", "Two-Tone Tips", "Exit" };
+            for (int i = 0; i < variable.EarTips.Length; i++)
             {
-                Console.WriteLine(Convert.ToString(i) + ". " + EarTips[i]);
+                Console.WriteLine(Convert.ToString(i) + ". " + variable.EarTips[i]);
             }
             Console.Write("\nSelect your product: ");
             string productEartip = Console.ReadLine();
 
-            int eartipstock = 0;
+            int eartipStock = 0;
 
             if (productEartip == "1")
-            {
-                eartipstock = 5;
-                variable.siliconTips = EarTips[0];
-            }
+                eartipStock = 5;
             else if (productEartip == "2")
-            {
-                eartipstock = 3;
-                variable.foamTips = EarTips[1];
-            }
+                eartipStock = 3;
             else if (productEartip == "3")
-            {
-                eartipstock = 4;
-                variable.doubleFlangesSiliconTips = EarTips[2];
-            }
+                eartipStock = 4;
             else if (productEartip == "4")
-            {
-                eartipstock = 5;
-                variable.tripleFlangesSiliconTips = EarTips[3];
-            }
-            else if (productEartip == "5")
-            {
-                eartipstock = 6;
-                variable.twotoneTips = EarTips[4];
-            }
+                eartipStock = 5;
+            else if (productEartip == "5")    
+                eartipStock = 6;
             else if (productEartip == "6")
-            {
                 HomePage(variable);
-            }
             else
             {
                 Console.WriteLine("Please select your product again");
@@ -199,11 +247,16 @@ namespace Webshop_Console
                 Headphone(variable);
             }
 
-            Console.WriteLine("Total Stock: " + Convert.ToString(eartipstock));
+            Console.WriteLine("Total Stock: " + Convert.ToString(eartipStock));
             Console.Write("\nSelect Your Quantity:");
             string eartipStockNeeded = Console.ReadLine();
             int eartipStockInt;
             bool stockConverted = int.TryParse(eartipStockNeeded, out eartipStockInt);
+            
+            
+
+
+
             while (stockConverted == true)
             {
                 if (eartipStockInt <= 0)
@@ -212,14 +265,40 @@ namespace Webshop_Console
                     Console.ReadLine();
                     Headphone(variable);
                 }
-                else if (Convert.ToUInt16(eartipStockNeeded) > Convert.ToUInt16(eartipstock))
+                else if (Convert.ToUInt16(eartipStockNeeded) > Convert.ToUInt16(eartipStock))
                 {
-                    Console.WriteLine("Sorry, but we only have " + Convert.ToString(eartipstock) + " items in stocks.");
+                    Console.WriteLine("Sorry, but we only have " + Convert.ToString(eartipStock) + " items in stocks.");
                     Console.ReadLine();
                     Headphone(variable);
                 }
                 else
                 {
+                    if (productEartip == "1")
+                    {
+                        variable.siliconTipsStock = Convert.ToString(eartipStockInt);
+                        variable.siliconTips = variable.EarTips[0];
+                    }
+                    else if (productEartip == "2")
+                    {
+                        variable.foamTipsStock = Convert.ToString(eartipStockInt);
+                        variable.foamTips = variable.EarTips[1];
+                    }
+                    else if (productEartip == "3")
+                    {
+                        variable.doubleFlangesSiliconTipsStock = Convert.ToString(eartipStockInt);
+                        variable.doubleFlangesSiliconTips = variable.EarTips[2];
+                    }
+                    else if (productEartip == "4")
+                    {
+                        variable.tripleFlangesSiliconTipsStock = Convert.ToString(eartipStockInt);
+                        variable.tripleFlangesSiliconTips = variable.EarTips[3];
+                    }
+                    else if (productEartip == "5")
+                    {
+                        variable.twotoneTipsStock = Convert.ToString(eartipStockInt);
+                        variable.twotoneTips = variable.EarTips[4];
+                    }
+
                     Console.WriteLine("Successfully added to Cart. Redirecting to Homepage...");
                     Console.ReadLine();
                     HomePage(variable);
@@ -228,15 +307,17 @@ namespace Webshop_Console
             Console.WriteLine("Invalid Input. Please enter an integer.");
             Console.ReadLine();
             Headphone(variable);
+        
+        
         }
 
         public static void IEM(Variables variable)
         {
             Console.Clear();
             variable.IEMs = new string[] { "7hz Salnotes Zero", "TruthEar Hola", "Moondrop Chu", "Tangzu Wagner", "Truthear X Crinacle", "Return To Homepage" };
-            for (int i = 1; i < variable.IEMs.Length; i++)
+            for (int i = 0; i < variable.IEMs.Length; i++)
             {
-                Console.WriteLine(Convert.ToString(i) + ". " + variable.IEMs[i]);
+                Console.WriteLine(Convert.ToString(i + 1) + ". " + variable.IEMs[i]);
             }
             Console.Write("\nSelect your product: ");
             string productIEM = Console.ReadLine();
@@ -246,27 +327,27 @@ namespace Webshop_Console
             if (productIEM == "1")
             {
                 IEMstock = 5;
-                variable.salnotesZero = variable.IEMs[0];
+                
             }
             else if (productIEM == "2")
             {
                 IEMstock = 3;
-                variable.truthEarHola = variable.IEMs[1];
+                
             }
             else if (productIEM == "3")
             {
                 IEMstock = 4;
-                variable.moondropChu = variable.IEMs[2];
+                
             }
             else if (productIEM == "4")
             {
                 IEMstock = 5;
-                variable.tangzuWagner = variable.IEMs[3];
+                
             }
             else if (productIEM == "5")
             {
                 IEMstock = 6;
-                variable.truthearXCrinacle = variable.IEMs[4];
+                
             }
             else if (productIEM == "6")
             {
@@ -300,6 +381,32 @@ namespace Webshop_Console
                 }
                 else
                 {
+                    if (productIEM == "1")
+                    {
+                        variable.salnotesZeroStock = IEMStockNeeded;
+                        variable.salnotesZero = variable.IEMs[0];
+                    }
+                    else if (productIEM == "2")
+                    {
+                        variable.truthEarHolaStock = IEMStockNeeded;
+                        variable.truthEarHola = variable.IEMs[1];
+                    }
+                    else if (productIEM == "3")
+                    {
+                        variable.moondropChuStock = IEMStockNeeded;
+                        variable.moondropChu = variable.IEMs[2];
+                    }
+                    else if (productIEM == "4")
+                    {
+                        variable.tangzuWagnerStock = IEMStockNeeded;
+                        variable.tangzuWagner = variable.IEMs[3];
+                    }
+                    else if (productIEM == "5")
+                    {
+                        variable.truthearXCrinacleStock = IEMStockNeeded;
+                        variable.truthearXCrinacle = variable.IEMs[4];
+                    }
+
                     Console.WriteLine("Successfully added to Cart. Redirecting to Homepage...");
                     Console.ReadLine();
                     HomePage(variable);
@@ -313,10 +420,10 @@ namespace Webshop_Console
         }
         static void DAC(Variables variable)
         {
-            string[] DACs = { "Venture Electronics - Abigail", "Venture Electronics - Avani", "ShangLing - UA1 Plus", "FIIO - KA3", "IFI AUDIO - GO LINK", "Exit" };
-            for (int i = 0; i < DACs.Length; i++)
+            variable.DACs = new string[] { "Venture Electronics - Abigail", "Venture Electronics - Avani", "ShangLing - UA1 Plus", "FIIO - KA3", "IFI AUDIO - GO LINK", "Exit" };
+            for (int i = 0; i < variable.DACs.Length; i++)
             {
-                Console.WriteLine(Convert.ToString(i) + ". " + DACs[i]);
+                Console.WriteLine(Convert.ToString(i) + ". " + variable.DACs[i]);
             }
             Console.Write("\nSelect your product: ");
             string productDAC = Console.ReadLine();
@@ -326,27 +433,22 @@ namespace Webshop_Console
             if (productDAC == "1")
             {
                 DACstock = 5;
-                variable.ventureElectronicsAbigail = DACs[0];
             }
             else if (productDAC == "2")
             {
                 DACstock = 3;
-                variable.ventureElectronicsAvani = DACs[1];
             }
             else if (productDAC == "3")
             {
                 DACstock = 4;
-                variable.shanglingUA1Plus = DACs[2];
             }
             else if (productDAC == "4")
             {
                 DACstock = 5;
-                variable.FIIOKA3 = DACs[3];
             }
             else if (productDAC == "5")
             {
                 DACstock = 6;
-                variable.GoLink = DACs[4];
             }
             else if (productDAC == "6")
             {
@@ -380,7 +482,33 @@ namespace Webshop_Console
                 }
                 else
                 {
-                    Console.WriteLine("Successfully added to Cart. Redirecting to Homepage...");
+                    if (productDAC == "1")
+                    {
+                        variable.ventureElectronicsAbigailStock = DACStockNeeded;
+                        variable.ventureElectronicsAbigail = variable.DACs[0];
+                    }
+                    else if (productDAC == "2")
+                    {
+                        variable.ventureElectronicsAvaniStock = DACStockNeeded;
+                        variable.ventureElectronicsAvani = variable.DACs[1];
+                    }
+                    else if (productDAC == "3")
+                    {
+                        variable.shanglingUA1PlusStock = DACStockNeeded;
+                        variable.shanglingUA1Plus = variable.DACs[2];
+                    }
+                    else if (productDAC == "4")
+                    {
+                        variable.FIIOKA3Stock = DACStockNeeded;
+                        variable.FIIOKA3 = variable.DACs[3];
+                    }
+                    else if (productDAC == "5")
+                    {
+                        variable.GoLinkStock = DACStockNeeded;
+                        variable.GoLink = variable.DACs[4];
+                    }
+
+                        Console.WriteLine("Successfully added to Cart. Redirecting to Homepage...");
                     Console.ReadLine();
                     HomePage(variable);
                 }
@@ -391,40 +519,40 @@ namespace Webshop_Console
         }
         static void Headphone(Variables variable)
         {
-            string[] Headphones = { "Sennheiser HD599", "Tribit BTH Xfree Go", "Audio Technica m40x", "Sennheiser HD650", "Hifiman - Edition XS", "Exit" };
-            for (int i = 0; i < Headphones.Length; i++)
+            variable.Headphones = new string[] { "Sennheiser HD599", "Tribit BTH Xfree Go", "Audio Technica m40x", "Sennheiser HD650", "Hifiman - Edition XS", "Exit" };
+            for (int i = 0; i < variable.Headphones.Length; i++)
             {
-                Console.WriteLine(Convert.ToString(i) + ". " + Headphones[i]);
+                Console.WriteLine(Convert.ToString(i) + ". " + variable.Headphones[i]);
             }
             Console.Write("\nSelect your product: ");
             string productHeadphone = Console.ReadLine();
 
-            int IEMstock = 0;
+            int headphoneStock = 0;
 
             if (productHeadphone == "1")
             {
-                IEMstock = 5;
-                variable.sennheiserHD599 = Headphones[0];
+                headphoneStock = 5;
+               
             }
             else if (productHeadphone == "2")
             {
-                IEMstock = 3;
-                variable.tribitBTHXFreeGo = Headphones[1];
+                headphoneStock = 3;
+                
             }
             else if (productHeadphone == "3")
             {
-                IEMstock = 4;
-                variable.audioTechnicam40x = Headphones[2];
+                headphoneStock = 4;
+                
             }
             else if (productHeadphone == "4")
             {
-                IEMstock = 5;
-                variable.hifimanEditionXS = Headphones[3];
+                headphoneStock = 5;
+               
             }
             else if (productHeadphone == "5")
             {
-                IEMstock = 6;
-                variable.GoLink = Headphones[4];
+                headphoneStock = 6;
+                
             }
             else if (productHeadphone == "6")
             {
@@ -437,27 +565,55 @@ namespace Webshop_Console
                 Headphone(variable);
             }
 
-            Console.WriteLine("Total Stock: " + Convert.ToString(IEMstock));
+            Console.WriteLine("Total Stock: " + Convert.ToString(headphoneStock));
             Console.Write("\nSelect Your Quantity:");
             string headphoneStockNeeded = Console.ReadLine();
             int headphoneStockInt;
             bool stockConverted = int.TryParse(headphoneStockNeeded, out headphoneStockInt);
             while (stockConverted == true)
             {
+                
                 if (headphoneStockInt <= 0)
                 {
                     Console.WriteLine("Please enter a valid quantity and try again.");
                     Console.ReadLine();
                     Headphone(variable);
                 }
-                else if (Convert.ToUInt16(headphoneStockNeeded) > Convert.ToUInt16(IEMstock))
+                else if (Convert.ToUInt16(headphoneStockNeeded) > Convert.ToUInt16(headphoneStock))
                 {
-                    Console.WriteLine("Sorry, but we only have " + Convert.ToString(IEMstock) + " items in stocks.");
+                    Console.WriteLine("Sorry, but we only have " + Convert.ToString(headphoneStock) + " items in stocks.");
                     Console.ReadLine();
                     Headphone(variable);
                 }
                 else
                 {
+                    if (productHeadphone == "1")
+                    {
+                        variable.sennheiserHD599Stock = headphoneStockNeeded;
+                        variable.sennheiserHD599 = variable.Headphones[0];
+                    }
+                    else if (productHeadphone == "2")
+                    {
+                        variable.tribitBTHXFreeGoStock = headphoneStockNeeded;
+                        variable.tribitBTHXFreeGo = variable.Headphones[1];
+                    }
+                    else if (productHeadphone == "3")
+                    {
+                        variable.audioTechnicam40xStock = headphoneStockNeeded;
+                        variable.audioTechnicam40x = variable.Headphones[2];
+                    }
+                    else if (productHeadphone == "4")
+                    {
+                        variable.sennheiserHD650Stock = headphoneStockNeeded;
+                        variable.sennheiserHD650 = variable.Headphones[3];
+                    }
+                    else if (productHeadphone == "5")
+                    {
+                        variable.hifimanEditionXSStock = headphoneStockNeeded;
+                        variable.hifimanEditionXS = variable.Headphones[4];
+                    }
+                    
+
                     Console.WriteLine("Successfully added to Cart. Redirecting to Homepage...");
                     Console.ReadLine();
                     HomePage(variable);
@@ -495,12 +651,40 @@ namespace Webshop_Console
         public string doubleFlangesSiliconTips { get; set; }
         public string tripleFlangesSiliconTips { get; set; }
         public string twotoneTips { get; set; }
-        public string Tangu7 { get; set; }
-        public string Tangu8 { get; set; }
-        public string[] IEMs {  get; set; }
+        public string salnotesZeroStock { get; set; }
+        public string truthEarHolaStock { get; set; }
+        public string moondropChuStock { get; set; }
+        public string tangzuWagnerStock { get; set; }
+        public string truthearXCrinacleStock { get; set; }
+    public string siliconTipsStock { get; set; }
+    public string foamTipsStock { get; set; }
+    public string doubleFlangesSiliconTipsStock { get; set; }
+    public string tripleFlangesSiliconTipsStock { get; set; }
+    public string twotoneTipsStock { get; set; }
+    public string ventureElectronicsAbigailStock { get; set; }
+    public string ventureElectronicsAvaniStock { get; set; }
+    public string shanglingUA1PlusStock { get; set; }
+    public string FIIOKA3Stock { get; set; }
+    public string GoLinkStock { get; set; }
+    public string sennheiserHD599Stock { get; set; }
+    public string tribitBTHXFreeGoStock { get; set; }
+    public string audioTechnicam40xStock { get; set; }
+    public string hifimanEditionXSStock { get; set; }
+    public string sennheiserHD650Stock { get; set; }
+    public string sennheiserHD650 { get; set; }
+
+
+
+
+
+
+
+
+
+    public string[] IEMs {  get; set; }
     public string[] DACs { get; set; }
     public string[] Headphones { get; set; }
-    public string[] Eartips { get; set; }
+    public string[] EarTips { get; set; }
     
 
 }

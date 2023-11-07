@@ -130,6 +130,8 @@ namespace Webshop_Console
                     DAC(variable);
                 else if (userInputHomePage == "2A")
                     Cart(variable); 
+                else if (userInputHomePage == "3A")
+                    Menu(variable);
                 else
                 {
                     Console.WriteLine("Invalid Input. Try again. \nRedirecting...");
@@ -360,34 +362,17 @@ namespace Webshop_Console
             int IEMstock = 0;
 
             if (productIEM == "1")
-            {
                 IEMstock = 5;
-                
-            }
             else if (productIEM == "2")
-            {
                 IEMstock = 3;
-                
-            }
             else if (productIEM == "3")
-            {
                 IEMstock = 4;
-                
-            }
             else if (productIEM == "4")
-            {
                 IEMstock = 5;
-                
-            }
             else if (productIEM == "5")
-            {
                 IEMstock = 6;
-                
-            }
             else if (productIEM == "6")
-            {
                 HomePage(variable);
-            }
             else
             {
                 Console.WriteLine("Please select your product again");
@@ -466,29 +451,17 @@ namespace Webshop_Console
             int DACstock = 0;
 
             if (productDAC == "1")
-            {
                 DACstock = 5;
-            }
             else if (productDAC == "2")
-            {
                 DACstock = 3;
-            }
             else if (productDAC == "3")
-            {
                 DACstock = 4;
-            }
             else if (productDAC == "4")
-            {
                 DACstock = 5;
-            }
             else if (productDAC == "5")
-            {
                 DACstock = 6;
-            }
             else if (productDAC == "6")
-            {
                 HomePage(variable);
-            }
             else
             {
                 Console.WriteLine("Please select your product again");
@@ -565,34 +538,18 @@ namespace Webshop_Console
             int headphoneStock = 0;
 
             if (productHeadphone == "1")
-            {
                 headphoneStock = 5;
-               
-            }
             else if (productHeadphone == "2")
-            {
                 headphoneStock = 3;
-                
-            }
             else if (productHeadphone == "3")
-            {
-                headphoneStock = 4;
-                
-            }
+                headphoneStock = 4; 
             else if (productHeadphone == "4")
-            {
                 headphoneStock = 5;
-               
-            }
             else if (productHeadphone == "5")
-            {
                 headphoneStock = 6;
                 
-            }
             else if (productHeadphone == "6")
-            {
                 HomePage(variable);
-            }
             else
             {
                 Console.WriteLine("Please select your product again");

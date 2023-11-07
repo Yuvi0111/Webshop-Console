@@ -138,6 +138,21 @@ namespace Webshop_Console
             Environment.Exit(0);
         }
 
+        public static void Cart(Variables variable) 
+        {
+            Console.Clear();
+            Console.WriteLine("Cart:");
+            Console.WriteLine("");
+
+            while (cartInput != "2")
+            {
+
+            }
+
+        }
+        
+        
+        
         public static void IEM(Variables variable)
         {
             Console.Clear();

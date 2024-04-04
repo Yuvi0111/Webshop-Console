@@ -155,7 +155,7 @@ namespace Webshop_Console
             {
                 Console.Write("*");
             }
-            Console.Write("\n1. Edit your username \n2. Edit your Email\n3. Edit your Phone Number\n4. Edit your Password\n5. Go back to homepage\n Function:");
+            Console.Write("\n1. Edit your username \n2. Edit your Email\n3. Edit your Phone Number\n4. Edit your Password\n5. Go back to homepage\nFunction:");
             string accountInput = Console.ReadLine();
             if (accountInput == "1")
             {
